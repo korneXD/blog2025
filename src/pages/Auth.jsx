@@ -33,31 +33,31 @@ export const Auth = () => {
   console.log(user);
 
   return (
-    <div className='flex justify-center items-start font-main pt-10'>
-      <div className='p-6 rounded-[15px] shadow-md shadow-black bg-slate-900 h-[450px] pt-16'>
+    <div className='flex justify-center items-start font-main pt-10 min-h-screen'>
+      <div className='p-6 rounded-[15px] shadow-sm shadow-stone-600 bg-black h-[450px] pt-16'>
         <h1 className='text-3xl font-bold text-center text-white font-lonely'>{isSignIn ? 'Login' : 'Register'}</h1>
         <form className="mt-6 mb-2 w-fit h-fit flex flex-col justify-center items-center" onSubmit={handleSubmit}>
           <div className="mb-1 flex flex-col gap-6">
             <input
               name='email'
               placeholder="Email"
-              className="shadow-md shadow-black placeholder:text-md p-2 text-center mx-4 rounded-[40px] text-xl outline-none focus:placeholder-transparent bg-white text-black placeholder-black"
+              className="shadow-sm shadow-stone-600 placeholder:text-md p-2 text-center mx-4 rounded-[40px] text-xl outline-none focus:placeholder-transparent bg-[#1f1f1f] text-white placeholder-white"
             />
             {!isSignIn &&
               <input
                 name='displayName'
                 placeholder="Nickname"
-                className="shadow-md shadow-black placeholder:text-md p-2 text-center mx-4 rounded-[40px] text-xl outline-none focus:placeholder-transparent bg-white text-black placeholder-black"
+                className="shadow-sm shadow-stone-600 placeholder:text-md p-2 text-center mx-4 rounded-[40px] text-xl outline-none focus:placeholder-transparent bg-[#1f1f1f] text-white placeholder-white"
               />
             }
             <input
               type="password"
               name='password'
               placeholder="********"
-              className="shadow-md shadow-black flex p-2 text-center mx-4 rounded-[40px] text-xl outline-none focus:placeholder-transparent bg-white text-black placeholder-black"
+              className="shadow-sm shadow-stone-600 flex p-2 text-center mx-4 rounded-[40px] text-xl outline-none focus:placeholder-transparent bg-[#1f1f1f] text-white placeholder-white"
             />
           </div>
-          <button className='py-1 bg-slate-700 font-lonely font-bold shadow-md shadow-black text-lg text-white text-center rounded-[20px] w-[80%] hover:scale-y-105 transition-all mt-4'>
+          <button className='py-1 bg-[#101010] font-lonely font-bold shadow-sm shadow-stone-600 text-lg text-white text-center rounded-[20px] w-[80%] hover:scale-y-105 transition-all mt-4'>
             {isSignIn ? "Login" : "Register"}
           </button>
           {isSignIn ?

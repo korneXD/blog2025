@@ -38,9 +38,8 @@ export const readPost=async (setPost,id)=>{
     const docRef = doc(db,'posts',id)
     const unsubscribe = onSnapshot(docRef,(snapshot)=>{
         setPost({...snapshot.data(),id:snapshot.id})
-        return unsubscribe
     })
-    setPost({...docSnap.data(),id:docRef.id})
+    return unsubscribe
 }
 
 export const toggleLikes=async(id,uid)=>{
@@ -54,4 +53,9 @@ export const toggleLikes=async(id,uid)=>{
         console.log('like');
         await updateDoc(docRef,{likes:[...likesArr,uid]})
     }
+}
+
+export const updatePost=async(id,{title,category,story})=>{
+    const docRef = doc(db,'posts',id)
+    await updateDoc(docRef,{title,category,story})
 }

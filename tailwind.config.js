@@ -14,7 +14,7 @@ const config = {
       },
       fontFamily: {
         main: ["poppins","sans-serif"],
-        lonely: ["poppins","sans-serif"]
+        poppins: ["poppins","sans-serif"]
       }
     },
   },

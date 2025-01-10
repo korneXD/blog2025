@@ -7,6 +7,7 @@ import Categories from '../components/Categories'
 import { useContext } from 'react'
 import { CategContext } from '../context/CategContext'
 import { useSearchParams } from 'react-router-dom'
+import SearchBox from '../components/SearchBox'
 
 export const Posts = () => {
   const [searchParams] = useSearchParams()
@@ -26,9 +27,10 @@ export const Posts = () => {
   }
 
   return (
-    <div className='flex justify-start items-center pt-10 flex-col pb-6'>
-    <p className='text-white text-3xl font-lonely mb-2'>Posts</p>
+    <div className='flex justify-start items-center pt-10 flex-col pb-6 overflow-y-hidden min-h-screen w-full'>
+    <p className='text-white text-xl font-lonely mb-2 uppercase tracking-wide italic'>- Posts -</p>
     <Categories categories={categories} selCateg={selCateg} setSelCateg={setSelCateg} handleChange={handleChange}/>
+    {posts && <SearchBox items={posts.map(obj=>({id: obj.id,name: obj.title}))}/>}
     <CardsContainer posts={posts}/>
   </div>
   )

@@ -43,16 +43,16 @@ export const Profile = () => {
   }
 
   return (
-    <div className='flex justify-start items-center flex-col pt-2 select-none gap-2'>
-      <p className='text-white text-3xl font-lonely'>Profile</p>
-      <hr className='border-slate-600 w-[600px] rounded-lg border-1' />
+    <div className='flex justify-start items-center flex-col pt-10 select-none gap-2 min-h-screen'>
+      <p className='text-white text-2xl uppercase tracking-wide italic'>- Profile -</p>
+      <div className="flex justify-center items-center flex-col gap-2 bg-black p-4 rounded-lg shadow-sm shadow-stone-600">
       <form onSubmit={handleSubmit(onSubmit)} className='flex justify-center items-center gap-4 flex-col'>
         <div className='flex justify-center items-center flex-col'>
-          <label className='font-lonely text-xl text-white'>Nickname:</label>
-          <input {...register("displayName")} type="text" className='rounded-lg px-2 shadow-md shadow-black' />
+          <label className='font-bold text-xl text-white'>Nickname:</label>
+          <input {...register("displayName")} type="text" className='rounded-lg px-2 shadow-sm shadow-stone-600' />
         </div>
         <div className='flex justify-center items-center flex-col'>
-          <label className='font-lonely text-xl text-white'>Avatar:</label>
+          <label className='font-bold text-xl text-white'>Avatar:</label>
           <input {...register('file', {
             validate: (value) => {
               if (!value[0]) {
@@ -68,9 +68,9 @@ export const Profile = () => {
               }
               return true
             }
-          })} type="file" onChange={(e) => setAvatar(URL.createObjectURL(e.target.files[0]))} className='text-lg shadow-md shadow-black rounded-lg bg-slate-700 text-white' />
-          <p className='text-red-500 font-lonely'>{errors?.file?.message}</p>
-          <input type="submit" value="Change" className='font-lonely bg-slate-700 font-bold px-2 py-1 rounded-lg shadow-md shadow-black text-white hover:scale-105 transition-all cursor-pointer mt-4' />
+          })} type="file" onChange={(e) => setAvatar(URL.createObjectURL(e.target.files[0]))} className='text-lg shadow-sm shadow-stone-600 rounded-lg bg-[#1f1f1f] text-white' />
+          <p className='text-red-500 italic text-lg'>{errors?.file?.message}</p>
+          <input type="submit" value="Change" className='font-lonely bg-[#1f1f1f] font-bold px-2 py-1 rounded-lg shadow-sm shadow-stone-600 text-white hover:scale-105 transition-all cursor-pointer mt-4' />
         </div>
       </form>
       {loading &&
@@ -85,6 +85,7 @@ export const Profile = () => {
         </div>
       }
       <DeleteAccount />
+      </div>
     </div>
   )
 }
