@@ -1,37 +1,41 @@
-import React from 'react'
-import { useContext } from 'react'
-import { UserContext } from '../context/UserContext'
-import Toastify from '../components/Toastify'
+import React from "react";
+import { useContext } from "react";
+import { UserContext } from "../context/UserContext";
+import Toastify from "../components/Toastify";
 
 export const PwReset = () => {
-  const {msg, resetPassword} = useContext(UserContext)
+  const { msg, resetPassword } = useContext(UserContext);
 
-  const handleSubmit =(e)=>{
-    e.preventDefault()
-    const data = new FormData(e.currentTarget)
-    console.log(data.get('email'));
-    resetPassword(data.get('email'))
-
-  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    console.log(data.get("email"));
+    resetPassword(data.get("email"));
+  };
 
   return (
-    <div className='flex justify-center items-start min-h-screen font-main pt-10'>
-      <div className='p-6 rounded-[15px] shadow-sm shadow-stone-600 bg-black h-[300px] pt-16'>
-        <h1 className='text-3xl font-bold text-center text-white'>Reset Password</h1>
-        <form className="mt-6 mb-2 w-fit h-fit flex flex-col justify-center items-center" onSubmit={handleSubmit}>
+    <div className="flex min-h-screen items-start justify-center pt-10 font-main">
+      <div className="h-[300px] rounded-[15px] border border-stone-600 bg-black p-6 pt-16 shadow-md shadow-stone-800">
+        <h1 className="text-center text-3xl font-extralight uppercase tracking-wide text-white">
+          Reset Password
+        </h1>
+        <form
+          className="mb-2 mt-6 flex h-fit w-fit flex-col items-center justify-center"
+          onSubmit={handleSubmit}
+        >
           <div className="mb-1 flex flex-col gap-6">
             <input
-              name='email'
+              name="email"
               placeholder="Email"
-              className="shadow-sm shadow-stone-600 placeholder:text-md p-2 text-center mx-4 rounded-[40px] bg-[#1f1f1f] text-xl outline-none text-white placeholder-white"
+              className="placeholder:text-md mx-4 rounded-[40px] border border-stone-600 bg-[#1f1f1f] p-2 text-center text-xl font-extralight uppercase tracking-wide text-white placeholder-white shadow-md shadow-stone-800 outline-none"
             />
           </div>
-          <button className='py-1 bg-[#101010] font-bold shadow-sm shadow-stone-600 text-white text-center rounded-[20px] w-[80%] hover:scale-y-105 transition-all mt-4 text-xl'>
+          <button className="mt-4 w-[80%] rounded-[20px] border border-stone-600 bg-[#101010] py-1 text-center text-xl font-extralight uppercase tracking-wide text-white shadow-md shadow-stone-800 transition-all hover:scale-y-105">
             Reset
-          </button>      
+          </button>
         </form>
-        {msg && <Toastify {...msg}/>}
+        {msg && <Toastify {...msg} />}
       </div>
     </div>
-  )
-}
+  );
+};
