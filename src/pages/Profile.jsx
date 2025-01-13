@@ -46,14 +46,14 @@ export const Profile = () => {
   };
 
   return (
-    <div className="flex min-h-screen select-none flex-col items-center justify-start gap-2 pt-10">
+    <div className="flex min-h-screen w-full select-none flex-col items-center justify-start gap-2 pt-10">
       <p className="text-2xl uppercase italic tracking-wide text-white">
         - Profile -
       </p>
-      <div className="flex flex-col items-center justify-center gap-2 rounded-lg border border-stone-600 bg-black p-4 shadow-md shadow-stone-800">
+      <div className="flex w-[70%] flex-col items-center justify-center gap-2 rounded-lg border border-stone-600 bg-black p-4 shadow-md shadow-stone-800">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col items-center justify-center gap-4"
+          className="flex w-fit flex-col items-center justify-center gap-4"
         >
           <div className="flex flex-col items-center justify-center">
             <label className="text-xl font-extralight uppercase tracking-wide text-white">

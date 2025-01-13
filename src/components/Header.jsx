@@ -170,7 +170,7 @@ export const Header = () => {
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
                   stroke="currentColor"
-                  className="flex size-7 text-stone-600 lg:hidden"
+                  className="flex size-10 text-stone-600 lg:hidden"
                   onClick={() => setOpen((open) => !open)}
                 >
                   <path
@@ -184,27 +184,51 @@ export const Header = () => {
                 <div className="fixed left-0 top-0 z-20 h-full w-full">
                   <div className="flex h-full w-full flex-col items-center justify-center gap-8 rounded-lg border border-stone-900 bg-black px-4 py-3 shadow-md shadow-stone-900">
                     <p
-                      className="absolute right-4 top-4 text-xl text-white"
+                      className="absolute right-4 top-4 text-2xl text-white"
                       onClick={() => setOpen(false)}
                     >
                       X
                     </p>
-                    {pages.map((nav) => (
-                      <NavLink
-                        key={nav.name}
-                        to={nav.path}
-                        onClick={() => setOpen((open) => !open)}
-                      >
-                        <p className="px-2 py-1 text-2xl font-extralight uppercase tracking-wide text-white">
-                          {nav.name}
-                        </p>
-                      </NavLink>
-                    ))}
+                    {!user ? (
+                      <div className="flex flex-col items-center justify-center gap-8">
+                        <NavLink
+                          to={"/"}
+                          onClick={() => setOpen((open) => !open)}
+                        >
+                          <p className="px-2 py-1 text-2xl font-extralight uppercase tracking-wide text-white">
+                            Home
+                          </p>
+                        </NavLink>
+                        <NavLink
+                          to={"/posts"}
+                          onClick={() => setOpen((open) => !open)}
+                        >
+                          <p className="px-2 py-1 text-2xl font-extralight uppercase tracking-wide text-white">
+                            Posts
+                          </p>
+                        </NavLink>
+                      </div>
+                    ) : (
+                      <div className="flex flex-col items-center justify-center gap-8">
+                        {pages.map((nav) => (
+                          <NavLink
+                            key={nav.name}
+                            to={nav.path}
+                            onClick={() => setOpen((open) => !open)}
+                          >
+                            <p className="px-2 py-1 text-2xl font-extralight uppercase tracking-wide text-white">
+                              {nav.name}
+                            </p>
+                          </NavLink>
+                        ))}
+                      </div>
+                    )}
                     {!user ? (
                       <div className="flex flex-col items-center justify-center gap-8">
                         <div className="text-md cursor-pointer px-2 py-1 text-white">
                           <NavLink
                             to={"/auth/in"}
+                            onClick={() => setOpen(false)}
                             className="flex flex-row items-center justify-center gap-2 text-2xl uppercase tracking-wide"
                           >
                             <svg
@@ -227,6 +251,7 @@ export const Header = () => {
                         <div className="text-md cursor-pointer px-2 py-1 text-white">
                           <NavLink
                             to={"/auth/up"}
+                            onClick={() => setOpen(false)}
                             className="flex flex-row items-center justify-center gap-2 text-2xl uppercase tracking-wide"
                           >
                             <svg
@@ -249,18 +274,26 @@ export const Header = () => {
                       </div>
                     ) : (
                       <div className="flex flex-col items-center justify-center gap-3">
-                        <div className="cursor-pointer px-2 py-1 text-2xl uppercase tracking-wide text-red-500">
+                        <div
+                          className="cursor-pointer px-2 py-1 text-2xl uppercase tracking-wide text-red-500"
+                          onClick={() => setOpen(false)}
+                        >
                           <NavLink to={"/"} onClick={logOutUser}>
                             Exit
                           </NavLink>
                         </div>
                         <div className="cursor-pointer px-2 py-1 text-lg text-white">
                           {avatar ? (
-                            <img
-                              src={avatar}
-                              alt="avatar"
-                              className="size-14 rounded-[50%] bg-slate-950 p-1"
-                            />
+                            <NavLink
+                              to={"/profile"}
+                              onClick={() => setOpen(false)}
+                            >
+                              <img
+                                src={avatar}
+                                alt="avatar"
+                                className="size-14 rounded-[50%] bg-slate-950 p-1"
+                              />
+                            </NavLink>
                           ) : (
                             <svg
                               xmlns="http://www.w3.org/2000/svg"

@@ -27,7 +27,7 @@ const DeleteAccount = () => {
         Delete Account
       </p>
       {confirm && (
-        <div className="mt-2 rounded-xl bg-[#1f1f1f] p-2 shadow-sm shadow-stone-600">
+        <div className="mt-2 w-[70%] rounded-xl bg-[#1f1f1f] p-2 text-center shadow-sm shadow-stone-600">
           <p className="font-extralight uppercase tracking-wide text-white">
             Are you sure to delete your account?
           </p>
